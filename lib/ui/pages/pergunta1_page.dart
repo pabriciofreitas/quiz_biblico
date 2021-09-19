@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'pages.dart';
+
 class PerguntasPage1 extends StatefulWidget {
   const PerguntasPage1({Key? key}) : super(key: key);
 
@@ -8,8 +10,18 @@ class PerguntasPage1 extends StatefulWidget {
   _PerguntasPage1State createState() => _PerguntasPage1State();
 }
 
+bool viuResposta = false;
+String respostaCerta = "Rubem";
+String textButton = "Resonder";
+bool? respondeu;
 int? escolhida;
 Color corButton = Color(0xffD4D4D4);
+const List<String> l = [
+  "Dan",
+  "Rubem",
+  "Juda",
+  "josé",
+];
 
 class _PerguntasPage1State extends State<PerguntasPage1> {
   @override
@@ -65,16 +77,155 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                         const SizedBox(height: 16.0),
                     itemCount: 4,
                     itemBuilder: (BuildContext context, int index) {
-                      const List<String> l = [
-                        "Dan",
-                        "Rubem",
-                        "Juda",
-                        "josé",
-                      ];
+                      if (respondeu == true) {
+                        if (index == escolhida) {
+                          return Container(
+                            height: 70,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFE5FFE6),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                color: Color(0xFF38C53D),
+                              ),
+                              // color: Colors.grey[100], //0xffE5E9FF
+                            ),
+                            child: ListTile(
+                              title: Text(l[index]),
+                              leading: Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  color: Color(0xFF38C53D),
+                                ),
+                                child: Center(
+                                  child: Icon(
+                                    Icons.check,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        } else {
+                          return Container(
+                            height: 70,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                color: Color(0xffd3d3d3),
+                              ),
+                              // color: Colors.grey[100], //0xffE5E9FF
+                            ),
+                            child: ListTile(
+                              title: Text(l[index]),
+                              leading: Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: const Color(0xFF758CFF),
+                                  ),
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  //color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                      } else if (respondeu == false) {
+                        if (index == escolhida) {
+                          return Container(
+                            height: 70,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFFD6D6),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                color: Color(0xFFFF5A5A),
+                              ),
+                              // color: Colors.grey[100], //0xffE5E9FF
+                            ),
+                            child: ListTile(
+                              title: Text(l[index]),
+                              leading: Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  color: Color(0xFFFF5A5A),
+                                ),
+                                child: Center(
+                                  child: Icon(
+                                    Icons.check,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        } else if (index == l.indexOf(respostaCerta)) {
+                          return Container(
+                            height: 70,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFE5FFE6),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                color: Color(0xFF38C53D),
+                              ),
+                              // color: Colors.grey[100], //0xffE5E9FF
+                            ),
+                            child: ListTile(
+                              title: Text(l[index]),
+                              leading: Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  color: Color(0xFF38C53D),
+                                ),
+                                child: Center(
+                                  child: Icon(
+                                    Icons.check,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        } else {
+                          return Container(
+                            height: 70,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                color: Color(0xffd3d3d3),
+                              ),
+                              // color: Colors.grey[100], //0xffE5E9FF
+                            ),
+                            child: ListTile(
+                              title: Text(l[index]),
+                              leading: Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: const Color(0xFF758CFF),
+                                  ),
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  //color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                      }
                       if (escolhida != null) {
                         if (escolhida == index) {
                           //
-
+                          //Passar cor
                           //
                           return InkWell(
                               onTap: () {
@@ -190,8 +341,28 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
               //
               InkWell(
                   onTap: () {
-                    /* Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ResultPage()));*/
+                    if (escolhida != null) {
+                      setState(() {
+                        textButton = "Próxima pergunta";
+                        if (viuResposta == true) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ResultPage()));
+                        } else {
+                          if (l[escolhida!] == respostaCerta) {
+                            //corButton = Color(0xFF38C53D);
+                            respondeu = true;
+                            viuResposta = true;
+                          } else {
+                            respondeu = false;
+                            viuResposta = true;
+                          }
+                        }
+                      });
+                    }
+
+                    // Navigator.push(context,  MaterialPageRoute(builder: (context) => ResultPage()));
                   },
                   child: Container(
                     height: size.height * 0.075,
@@ -203,7 +374,7 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                     //
                     child: Center(
                       child: Text(
-                        "Responder",
+                        textButton,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.lato(
                           fontSize: 18,
@@ -220,6 +391,26 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'pages.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -48,7 +50,12 @@ class HomePage extends StatelessWidget {
                       color: const Color(0xff000000),
                     )),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PerguntasPage1()));
+                  },
                   child: Container(
                     height: size.height * 0.07,
                     width: size.height * 0.45,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'home_page.dart';
+
 class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);
 
@@ -54,7 +56,10 @@ class ResultPage extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     )),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
                   //
 
                   //
