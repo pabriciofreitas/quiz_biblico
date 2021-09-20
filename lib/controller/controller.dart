@@ -89,4 +89,15 @@ class Pagina {
     //required this.escolhida,
     //required this.corButton,
   });
+  @override
+  String toString() {
+    return "$pergunta | $respostas";
+  }
+}
+
+class Potuncao {
+  int potuncao;
+  Potuncao({
+    required this.potuncao,
+  });
 }

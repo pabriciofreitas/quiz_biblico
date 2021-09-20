@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'pages.dart';
+import 'pergunta_page6.dart';
 
-class PerguntasPage1 extends StatefulWidget {
-  const PerguntasPage1({Key? key}) : super(key: key);
+class PerguntasPage5 extends StatefulWidget {
+  const PerguntasPage5({Key? key}) : super(key: key);
 
   @override
-  _PerguntasPage1State createState() => _PerguntasPage1State();
+  _PerguntasPage5State createState() => _PerguntasPage5State();
 }
 
+var questao = Controller.p5;
+
+/*
 bool viuResposta = false;
 String respostaCerta = "Rubem";
 String textButton = "Resonder";
@@ -23,17 +27,20 @@ const List<String> l = [
   "josé",
 ];
 
-class _PerguntasPage1State extends State<PerguntasPage1> {
+*/
+
+class _PerguntasPage5State extends State<PerguntasPage5> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final arguments = ModalRoute.of(context)?.settings.arguments as Potuncao;
     return Scaffold(
-      backgroundColor: Color(0xffffffff),
+      backgroundColor: const Color(0xffffffff),
       appBar: AppBar(
         backgroundColor: const Color(0xFF758CFF),
         centerTitle: true,
         title: Text(
-          "Perguntas e respostas1",
+          "Perguntas e respostas",
           style: GoogleFonts.lato(
             fontSize: 17,
             color: const Color(0xffffffff),
@@ -48,7 +55,7 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text("Quem foi o filho primogênito de Jacó?",
+              Text(questao.pergunta,
                   textAlign: TextAlign.start,
                   style: GoogleFonts.lato(
                     fontSize: 16,
@@ -77,28 +84,28 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                         const SizedBox(height: 16.0),
                     itemCount: 4,
                     itemBuilder: (BuildContext context, int index) {
-                      if (respondeu == true) {
-                        if (index == escolhida) {
+                      if (questao.respondeu == true) {
+                        if (index == questao.escolhida) {
                           return Container(
                             height: 70,
                             decoration: BoxDecoration(
-                              color: Color(0xFFE5FFE6),
+                              color: const Color(0xFFE5FFE6),
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
-                                color: Color(0xFF38C53D),
+                                color: const Color(0xFF38C53D),
                               ),
                               // color: Colors.grey[100], //0xffE5E9FF
                             ),
                             child: ListTile(
-                              title: Text(l[index]),
+                              title: Text(questao.respostas[index]),
                               leading: Container(
                                 height: 20,
                                 width: 20,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(4.0),
-                                  color: Color(0xFF38C53D),
+                                  color: const Color(0xFF38C53D),
                                 ),
-                                child: Center(
+                                child: const Center(
                                   child: Icon(
                                     Icons.check,
                                     color: Colors.white,
@@ -119,7 +126,7 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                               // color: Colors.grey[100], //0xffE5E9FF
                             ),
                             child: ListTile(
-                              title: Text(l[index]),
+                              title: Text(questao.respostas[index]),
                               leading: Container(
                                 height: 20,
                                 width: 20,
@@ -134,28 +141,28 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                             ),
                           );
                         }
-                      } else if (respondeu == false) {
-                        if (index == escolhida) {
+                      } else if (questao.respondeu == false) {
+                        if (index == questao.escolhida) {
                           return Container(
                             height: 70,
                             decoration: BoxDecoration(
-                              color: Color(0xFFFFD6D6),
+                              color: const Color(0xFFFFD6D6),
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
-                                color: Color(0xFFFF5A5A),
+                                color: const Color(0xFFFF5A5A),
                               ),
                               // color: Colors.grey[100], //0xffE5E9FF
                             ),
                             child: ListTile(
-                              title: Text(l[index]),
+                              title: Text(questao.respostas[index]),
                               leading: Container(
                                 height: 20,
                                 width: 20,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(4.0),
-                                  color: Color(0xFFFF5A5A),
+                                  color: const Color(0xFFFF5A5A),
                                 ),
-                                child: Center(
+                                child: const Center(
                                   child: Icon(
                                     Icons.check,
                                     color: Colors.white,
@@ -165,27 +172,28 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                               ),
                             ),
                           );
-                        } else if (index == l.indexOf(respostaCerta)) {
+                        } else if (index ==
+                            questao.respostas.indexOf(questao.respostaCerta)) {
                           return Container(
                             height: 70,
                             decoration: BoxDecoration(
-                              color: Color(0xFFE5FFE6),
+                              color: const Color(0xFFE5FFE6),
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
-                                color: Color(0xFF38C53D),
+                                color: const Color(0xFF38C53D),
                               ),
                               // color: Colors.grey[100], //0xffE5E9FF
                             ),
                             child: ListTile(
-                              title: Text(l[index]),
+                              title: Text(questao.respostas[index]),
                               leading: Container(
                                 height: 20,
                                 width: 20,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(4.0),
-                                  color: Color(0xFF38C53D),
+                                  color: const Color(0xFF38C53D),
                                 ),
-                                child: Center(
+                                child: const Center(
                                   child: Icon(
                                     Icons.check,
                                     color: Colors.white,
@@ -201,12 +209,12 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
-                                color: Color(0xffd3d3d3),
+                                color: const Color(0xffd3d3d3),
                               ),
                               // color: Colors.grey[100], //0xffE5E9FF
                             ),
                             child: ListTile(
-                              title: Text(l[index]),
+                              title: Text(questao.respostas[index]),
                               leading: Container(
                                 height: 20,
                                 width: 20,
@@ -222,38 +230,38 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                           );
                         }
                       }
-                      if (escolhida != null) {
-                        if (escolhida == index) {
+                      if (questao.escolhida != null) {
+                        if (questao.escolhida == index) {
                           //
                           //Passar cor
                           //
                           return InkWell(
                               onTap: () {
                                 setState(() {
-                                  escolhida = index;
-                                  corButton = Color(0xFF758CFF);
+                                  questao.escolhida = index;
+                                  questao.corButton = Color(0xFF758CFF);
                                 });
                               },
                               child: Container(
                                 height: 70,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFE5E9FF),
+                                  color: const Color(0xFFE5E9FF),
                                   borderRadius: BorderRadius.circular(16),
                                   border: Border.all(
-                                    color: Color(0xFF758CFF),
+                                    color: const Color(0xFF758CFF),
                                   ),
                                   // color: Colors.grey[100], //0xffE5E9FF
                                 ),
                                 child: ListTile(
-                                  title: Text(l[index]),
+                                  title: Text(questao.respostas[index]),
                                   leading: Container(
                                     height: 20,
                                     width: 20,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(4.0),
-                                      color: Color(0xFF758CFF),
+                                      color: const Color(0xFF758CFF),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Icon(
                                         Icons.check,
                                         color: Colors.white,
@@ -270,8 +278,8 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                           return InkWell(
                             onTap: () {
                               setState(() {
-                                escolhida = index;
-                                corButton = Color(0xFF758CFF);
+                                questao.escolhida = index;
+                                questao.corButton = Color(0xFF758CFF);
                               });
                             },
                             child: Container(
@@ -284,7 +292,7 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                                 // color: Colors.grey[100], //0xffE5E9FF
                               ),
                               child: ListTile(
-                                title: Text(l[index]),
+                                title: Text(questao.respostas[index]),
                                 leading: Container(
                                   height: 20,
                                   width: 20,
@@ -304,8 +312,8 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                         return InkWell(
                           onTap: () {
                             setState(() {
-                              escolhida = index;
-                              corButton = Color(0xFF758CFF);
+                              questao.escolhida = index;
+                              questao.corButton = Color(0xFF758CFF);
                             });
                           },
                           child: Container(
@@ -313,12 +321,12 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
-                                color: Color(0xffd3d3d3),
+                                color: const Color(0xffd3d3d3),
                               ),
                               // color: Colors.grey[100], //0xffE5E9FF
                             ),
                             child: ListTile(
-                              title: Text(l[index]),
+                              title: Text(questao.respostas[index]),
                               leading: Container(
                                 height: 20,
                                 width: 20,
@@ -341,22 +349,34 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
               //
               InkWell(
                   onTap: () {
-                    if (escolhida != null) {
+                    if (questao.escolhida != null) {
                       setState(() {
-                        textButton = "Próxima pergunta";
-                        if (viuResposta == true) {
+                        questao.textButton = "Próxima pergunta";
+                        if (questao.viuResposta == true) {
+                          Potuncao pontos =
+                              Potuncao(potuncao: arguments.potuncao);
+
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ResultPage()));
+                                //settings: ,
+                                builder: (context) => (PerguntasPage6()),
+                                settings: RouteSettings(
+                                  name: "/profile",
+                                  arguments: pontos,
+                                ),
+                              ));
                         } else {
-                          if (l[escolhida!] == respostaCerta) {
+                          if (questao.respostas[questao.escolhida!] ==
+                              questao.respostaCerta) {
+                            arguments.potuncao += 1;
+
                             //corButton = Color(0xFF38C53D);
-                            respondeu = true;
-                            viuResposta = true;
+                            questao.respondeu = true;
+                            questao.viuResposta = true;
                           } else {
-                            respondeu = false;
-                            viuResposta = true;
+                            questao.respondeu = false;
+                            questao.viuResposta = true;
                           }
                         }
                       });
@@ -368,17 +388,17 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                     height: size.height * 0.075,
                     width: size.height * 0.65,
                     decoration: BoxDecoration(
-                      color: corButton,
+                      color: questao.corButton,
                       borderRadius: BorderRadius.circular(32),
                     ),
                     //
                     child: Center(
                       child: Text(
-                        textButton,
+                        questao.textButton,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.lato(
                           fontSize: 18,
-                          color: Color(0xffffffff),
+                          color: const Color(0xffffffff),
                           fontWeight: FontWeight.w900,
                         ),
                       ),

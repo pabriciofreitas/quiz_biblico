@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    @override
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xffE5E9FF),
@@ -51,10 +52,12 @@ class HomePage extends StatelessWidget {
                     )),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => PerguntasPage1()));
+                            builder: (BuildContext context) =>
+                                PerguntasPage1()),
+                        (route) => false);
                   },
                   child: Container(
                     height: size.height * 0.07,

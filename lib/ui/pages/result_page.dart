@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'home_page.dart';
+import 'pages.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -9,6 +10,10 @@ class ResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final arguments = ModalRoute.of(context)?.settings.arguments as Potuncao;
+
+    arguments.potuncao;
+
     return Scaffold(
       backgroundColor: Color(0xffE5E9FF),
       appBar: AppBar(
@@ -49,7 +54,7 @@ class ResultPage extends StatelessWidget {
                       fontSize: 12,
                       color: const Color(0xff000000),
                     )),
-                Text("5/10 Acertos",
+                Text("${arguments.potuncao}/10 Acertos",
                     style: GoogleFonts.lato(
                       fontSize: 24,
                       color: const Color(0xff000000),
