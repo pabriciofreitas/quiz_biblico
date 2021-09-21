@@ -1,16 +1,18 @@
-# desafio_1
+# Desafio da primeira semana do bootcamper usemobile
 
-A new Flutter project.
+Até momento a parte visual foi toda produzida, as perguntas foram listada, o resultado está exibindo de forma certa.
 
-## Getting Started
+O que falta: Quando aperta tenta de novo o estado do app todo reseta para pessoa poder tenta novamente, e criar uma forma de ramdomizar a ordem das perguntas e possiveis resposta.
 
-This project is a starting point for a Flutter application.
+Quer testa?
+tem o desafio1.apk só baixar e instalar no android 
+ou 
+baixa projeto do flutter e executar
+flutter pub get 
+flutter run
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center">
+    <img src="gif.gif">
+</p>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
