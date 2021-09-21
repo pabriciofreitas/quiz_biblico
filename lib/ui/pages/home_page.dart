@@ -52,6 +52,13 @@ class HomePage extends StatelessWidget {
                     )),
                 InkWell(
                   onTap: () {
+                    Pagina a = Pagina(
+                        pergunta:
+                            "Qual a mulher que acolheu o seu inimigo e depois o matou?",
+                        respostas: ["Raquel", "Abigail", "Débora", "Jael"],
+                        respostaCerta: "Jael");
+                    Controller.p1 = a;
+
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(

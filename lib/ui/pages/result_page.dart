@@ -66,7 +66,7 @@ class ResultPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (BuildContext context) => HomePage()),
-                        (route) => false);
+                        (Route<dynamic> route) => false);
                   },
                   //
 

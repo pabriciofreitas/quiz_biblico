@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Controller {
-  static List<Object> questoes = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+  //static List<Object> questoes = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
 
   static Pagina p1 = Pagina(
       pergunta: "Qual a mulher que acolheu o seu inimigo e depois o matou?",

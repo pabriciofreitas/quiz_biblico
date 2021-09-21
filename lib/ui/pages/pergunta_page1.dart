@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../controller/controller.dart';
+import 'pages.dart';
 import 'pergunta_page2.dart';
 
 class PerguntasPage1 extends StatefulWidget {
@@ -41,6 +42,8 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
   Widget build(BuildContext context) {
     @override
     final size = MediaQuery.of(context).size;
+    // Pagina questao =
+
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       appBar: AppBar(
@@ -361,7 +364,17 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
                         questao.textButton = "Próxima pergunta";
                         if (questao.viuResposta == true) {
                           Potuncao pontos = Potuncao(potuncao: repostaCerta);
-
+                          /*  Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  settings: RouteSettings(
+                                    name: "/profile",
+                                    arguments: pontos,
+                                  ),
+                                  builder: (BuildContext context) =>
+                                      PerguntasPage2()),
+                              (route) => false);
+                          */
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -416,26 +429,6 @@ class _PerguntasPage1State extends State<PerguntasPage1> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 
