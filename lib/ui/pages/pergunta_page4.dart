@@ -11,7 +11,7 @@ class PerguntasPage4 extends StatefulWidget {
   _PerguntasPage4State createState() => _PerguntasPage4State();
 }
 
-var questao = Controller.p4;
+var questao;
 
 /*
 bool viuResposta = false;
@@ -30,6 +30,21 @@ const List<String> l = [
 */
 
 class _PerguntasPage4State extends State<PerguntasPage4> {
+  @override
+  void initState() {
+    questao = Pagina(
+        pergunta: "Quem teve seu corpo disputado pelo arcanjo Miguel e o Diabo",
+        respostas: ["Jesus", "Eliseu", "Moisés", "Pedro"],
+        respostaCerta: "Moisés");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _PerguntasPage4State;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

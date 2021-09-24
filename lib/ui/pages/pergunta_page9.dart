@@ -11,7 +11,7 @@ class PerguntasPage9 extends StatefulWidget {
   _PerguntasPage9State createState() => _PerguntasPage9State();
 }
 
-var questao = Controller.p9;
+var questao;
 
 /*
 bool viuResposta = false;
@@ -30,6 +30,27 @@ const List<String> l = [
 */
 
 class _PerguntasPage9State extends State<PerguntasPage9> {
+  @override
+  void initState() {
+    questao = Pagina(
+        pergunta:
+            "A estátua do sonho de Nabucodonosor era composta de quais elementos?",
+        respostas: [
+          "Toda em ouro.",
+          "Ouro, prata, bronze, ferro e barro.",
+          "Ouro, prata, bronze, onix e ferro.",
+          "Ouro, prata, bronze, ferro e Jade"
+        ],
+        respostaCerta: "Ouro, prata, bronze, ferro e barro.");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _PerguntasPage9State;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

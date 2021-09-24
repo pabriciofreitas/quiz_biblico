@@ -11,7 +11,7 @@ class PerguntasPage6 extends StatefulWidget {
   _PerguntasPage6State createState() => _PerguntasPage6State();
 }
 
-var questao = Controller.p6;
+var questao;
 
 /*
 bool viuResposta = false;
@@ -30,6 +30,21 @@ const List<String> l = [
 */
 
 class _PerguntasPage6State extends State<PerguntasPage6> {
+  @override
+  void initState() {
+    questao = Pagina(
+        pergunta: "Qual era a idade de Calebe quando pediu Hebrom para Josué??",
+        respostas: ["40 anos", "80 anos", "85 anos", "120 anos"],
+        respostaCerta: "85 anos");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _PerguntasPage6State;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

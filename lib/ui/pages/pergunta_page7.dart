@@ -11,7 +11,7 @@ class PerguntasPage7 extends StatefulWidget {
   _PerguntasPage7State createState() => _PerguntasPage7State();
 }
 
-var questao = Controller.p7;
+var questao;
 
 /*
 bool viuResposta = false;
@@ -30,6 +30,26 @@ const List<String> l = [
 */
 
 class _PerguntasPage7State extends State<PerguntasPage7> {
+  @override
+  void initState() {
+    questao = Pagina(
+        pergunta: "Por quantas moedas José foi vendido pelos seus irmãos??",
+        respostas: [
+          "10 moedas de ouro",
+          "30 moedas de prata",
+          "20 denários",
+          "20 moedas de prata"
+        ],
+        respostaCerta: "20 moedas de prata");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _PerguntasPage7State;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

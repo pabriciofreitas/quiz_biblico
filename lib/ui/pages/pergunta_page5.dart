@@ -11,7 +11,7 @@ class PerguntasPage5 extends StatefulWidget {
   _PerguntasPage5State createState() => _PerguntasPage5State();
 }
 
-var questao = Controller.p5;
+var questao;
 
 /*
 bool viuResposta = false;
@@ -30,6 +30,21 @@ const List<String> l = [
 */
 
 class _PerguntasPage5State extends State<PerguntasPage5> {
+  @override
+  void initState() {
+    questao = Pagina(
+        pergunta: "Quem governou sendo rei e sacerdote ao mesmo tempo?",
+        respostas: ["Joacaz", "Melquisedeque", " Manassés", "Salomão"],
+        respostaCerta: "Melquisedeque");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _PerguntasPage5State;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

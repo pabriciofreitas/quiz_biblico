@@ -10,7 +10,7 @@ class PerguntasPage10 extends StatefulWidget {
   _PerguntasPage10State createState() => _PerguntasPage10State();
 }
 
-var questao = Controller.p10;
+var questao;
 
 /*
 bool viuResposta = false;
@@ -29,6 +29,22 @@ const List<String> l = [
 */
 
 class _PerguntasPage10State extends State<PerguntasPage10> {
+  @override
+  void initState() {
+    questao = Pagina(
+        pergunta:
+            "Em Tessalônica, Paulo, Silas e Timóteo se refugiaram na casa de qual irmão?",
+        respostas: ["Apolo", "Barnabé", "Jasom", "Barsabás"],
+        respostaCerta: "Jasom");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _PerguntasPage10State;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -355,16 +371,16 @@ class _PerguntasPage10State extends State<PerguntasPage10> {
                           Potuncao pontos =
                               Potuncao(potuncao: arguments.potuncao);
 
-                          Navigator.push(
+                          Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                //settings: ,
-                                builder: (context) => (ResultPage()),
-                                settings: RouteSettings(
-                                  name: "/profile",
-                                  arguments: pontos,
-                                ),
-                              ));
+                                  settings: RouteSettings(
+                                    name: "/profile",
+                                    arguments: pontos,
+                                  ),
+                                  builder: (BuildContext context) =>
+                                      ResultPage()),
+                              (route) => false);
                         } else {
                           if (questao.respostas[questao.escolhida!] ==
                               questao.respostaCerta) {

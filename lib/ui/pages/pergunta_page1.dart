@@ -17,7 +17,7 @@ class PerguntasPage1 extends StatefulWidget {
   _PerguntasPage1State createState() => _PerguntasPage1State();
 }
 
-Pagina questao = Controller.p1;
+late Pagina questao;
 int repostaCerta = 0;
 
 /*
@@ -39,14 +39,37 @@ const List<String> l = [
 class _PerguntasPage1State extends State<PerguntasPage1> {
   //Pagina questao=widget.lista[1];
   @override
+  void initState() {
+    questao = Pagina(
+        pergunta: "Qual a mulher que acolheu o seu inimigo e depois o matou?",
+        respostas: ["Raquel", "Abigail", "Débora", "Jael"],
+        respostaCerta: "Jael");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _PerguntasPage1State;
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     @override
     final size = MediaQuery.of(context).size;
-    // Pagina questao =
 
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       appBar: AppBar(
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => HomePage()),
+                (Route<dynamic> route) => false);
+          },
+        ),
         backgroundColor: const Color(0xFF758CFF),
         centerTitle: true,
         title: Text(

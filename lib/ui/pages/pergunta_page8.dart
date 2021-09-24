@@ -11,7 +11,7 @@ class PerguntasPage8 extends StatefulWidget {
   _PerguntasPage8State createState() => _PerguntasPage8State();
 }
 
-var questao = Controller.p8;
+var questao;
 
 /*
 bool viuResposta = false;
@@ -30,6 +30,27 @@ const List<String> l = [
 */
 
 class _PerguntasPage8State extends State<PerguntasPage8> {
+  @override
+  void initState() {
+    questao = Pagina(
+        pergunta:
+            "Quem foram apelidados por Jesus de Boanerges que significa 'Filhos do Trovão'?",
+        respostas: [
+          "João e Pedro",
+          "João e Tiago",
+          "Pedro e Tiago",
+          "Paulo e Barnabé"
+        ],
+        respostaCerta: "João e Tiago");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _PerguntasPage8State;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

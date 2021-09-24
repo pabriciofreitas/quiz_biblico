@@ -11,7 +11,7 @@ class PerguntasPage2 extends StatefulWidget {
   _PerguntasPage2State createState() => _PerguntasPage2State();
 }
 
-var questao = Controller.p2;
+var questao;
 
 /*
 bool viuResposta = false;
@@ -30,6 +30,26 @@ const List<String> l = [
 */
 
 class _PerguntasPage2State extends State<PerguntasPage2> {
+  @override
+  void initState() {
+    questao = Pagina(
+        pergunta: "Em quais livros da Bíblia não encontramos a palavra 'Deus'?",
+        respostas: [
+          "Ester e Cânticos",
+          "Ageu e Amós",
+          "Oséias e Eclesiastes",
+          "Tito e filemón"
+        ],
+        respostaCerta: "Ester e Cânticos");
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _PerguntasPage2State;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
