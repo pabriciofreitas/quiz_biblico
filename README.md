@@ -1,8 +1,8 @@
 # Desafio da primeira semana do bootcamper usemobile
 
-Até momento a parte visual foi toda produzida, as perguntas foram listada, o resultado está exibindo de forma certa.
+Até momento a parte visual foi toda produzida, as perguntas foram listada, o resultado está exibindo de forma certa, estado das telas está resetando de forma correta.
 
-O que falta: Quando aperta tenta de novo o estado do app todo reseta para pessoa poder tenta novamente, e criar uma forma de ramdomizar a ordem das perguntas e possiveis resposta.
+O que falta: criar uma forma de ramdomizar a ordem das perguntas e possiveis resposta.
 
 Quer testa?
 tem o desafio1.apk só baixar e instalar no android 
