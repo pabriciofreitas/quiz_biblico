@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
+import '../../controller/home_controller.dart';
 import 'pages.dart';
+import 'pagina_inicial.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  @override
   Widget build(BuildContext context) {
+    HomeControler homeControler = Provider.of<HomeControler>(context);
     @override
     final size = MediaQuery.of(context).size;
     return Scaffold(
@@ -25,108 +35,18 @@ class HomePage extends StatelessWidget {
       ),
       //
       body: SafeArea(
-        child: Center(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(32),
-              //border: BoxBorder(16),
-              color: Color(0xffffffff),
+        child: PageView(
+          physics: NeverScrollableScrollPhysics(),
+          controller: homeControler.controllerPagina,
+          children: [
+            PaginaInicial(
+              size: size,
             ),
-            width: size.height * 0.52,
-            height: size.height * 0.30,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  "Perguntas e Respostas",
-                  style: GoogleFonts.lato(
-                    fontSize: 24,
-                    color: Color(0xff758CFF),
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-                Text("Responda 10 perguntas e veja sua pontuação no fim!",
-                    style: GoogleFonts.lato(
-                      fontSize: 12,
-                      color: const Color(0xff000000),
-                    )),
-                InkWell(
-                  onTap: () {
-                    Pagina a = Pagina(
-                        pergunta:
-                            "Qual a mulher que acolheu o seu inimigo e depois o matou?",
-                        respostas: ["Raquel", "Abigail", "Débora", "Jael"],
-                        respostaCerta: "Jael");
-                    Controller.p1 = a;
-
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                PerguntasPage1()),
-                        (route) => false);
-                  },
-                  child: Container(
-                    height: size.height * 0.07,
-                    width: size.height * 0.45,
-                    decoration: BoxDecoration(
-                      color: Color(0xff758CFF),
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                    //
-                    child: Center(
-                      child: Text(
-                        "Start!",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.lato(
-                          fontSize: 18,
-                          color: Color(0xffffffff),
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+            PerguntasPage(),
+            ResultPage()
+          ],
         ),
       ),
     );
   }
 }
-
-/*SizedBox(
-
-
-
-
-ElevatedButton(
-                  onPressed: () {},
-                  child: Container(
-                    decoration: ,
-                    height: 50,
-                    width: 100,
-                    child: Text(
-                      "Start!",
-                    ),
-                  ),
-
-                  //alignment: AlignmentDirectional.center,
-                  //padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                ),
-
-
-
-                    height: 100,
-                    width: 250,
-                    child: Text(
-                      "Start!",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.lato(
-                        fontSize: 24,
-                        color: Color(0xffffffff),
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  ),*/
