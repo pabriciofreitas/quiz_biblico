@@ -20,6 +20,10 @@ class _PerguntasPageState extends State<PerguntasPage> {
   Widget build(BuildContext context) {
     @override
     final size = MediaQuery.of(context).size;
+    void dispose() {
+      _PerguntasPageState;
+      super.dispose();
+    }
 
     return Consumer<PerguntaController>(
       builder: (context, perguntaController, widget) {
@@ -110,11 +114,13 @@ class _PerguntasPageState extends State<PerguntasPage> {
                               true;
                           int indexPagina = perguntaController
                               .proximaPagina(perguntaController.perguntas);
-                          if (indexPagina == 11) {
+                          if (indexPagina ==
+                              perguntaController.perguntas.length) {
                             HomeControler homeControler =
                                 Provider.of<HomeControler>(context,
                                     listen: false);
                             homeControler.navigatorPage(2);
+                            perguntaController.zerarEstado();
                           } else {
                             pageController.animateToPage(indexPagina,
                                 duration: Duration(milliseconds: 250),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-import 'home_page.dart';
-import 'pages.dart';
+import '../../controller/home_controller.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -47,11 +47,9 @@ class ResultPage extends StatelessWidget {
                 )),
             TextButton(
               onPressed: () {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => HomePage()),
-                    (Route<dynamic> route) => false);
+                HomeControler homeControler =
+                    Provider.of<HomeControler>(context, listen: false);
+                homeControler.navigatorPage(0);
               },
               //
 

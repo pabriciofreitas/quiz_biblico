@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import '../models/pagina.dart';
 
 class PerguntaController extends ChangeNotifier {
-  List<Pagina> perguntas = [
+  List<Pagina> perguntas1 = [
     Pagina(
         pergunta: "Qual a mulher que acolheu o seu inimigo e depois o matou?",
         respostas: ["Raquel", "Abigail", "Débora", "Jael"],
@@ -64,13 +64,17 @@ class PerguntaController extends ChangeNotifier {
         respostas: ["Apolo", "Barnabé", "Jasom", "Barsabás"],
         respostaCerta: "Jasom"),
   ];
-
+  late List<Pagina> perguntas = perguntas1;
   int proximaPagina(List<Pagina> listPagina) {
     for (Pagina pagina in listPagina) {
       if (!pagina.viuResposta) {
         return listPagina.indexOf(pagina, 0);
       }
     }
-    return 11;
+    return listPagina.length;
+  }
+
+  void zerarEstado() {
+    perguntas = perguntas1;
   }
 }
