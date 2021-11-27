@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
-import '../../controller/home_controller.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -47,9 +44,9 @@ class ResultPage extends StatelessWidget {
                 )),
             TextButton(
               onPressed: () {
-                HomeControler homeControler =
-                    Provider.of<HomeControler>(context, listen: false);
-                homeControler.navigatorPage(0);
+                // HomeControler homeControler =
+                //     Provider.of<HomeControler>(context, listen: false);
+                // homeControler.navigatorPage(0);
               },
               //
 

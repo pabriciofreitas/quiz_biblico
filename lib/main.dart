@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'controller/home_controller.dart';
@@ -31,11 +32,13 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         theme: ThemeData(
-          primaryColor: Color(0xFF758CFF),
+          fontFamily: "lato",
+          textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
+          primaryColor: const Color(0xFF758CFF),
           // primarySwatch: Color(0xFF758CFF),
         ),
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: const HomePage(),
       ),
     );
   }

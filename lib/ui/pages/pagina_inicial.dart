@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-
-import '../../controller/home_controller.dart';
 
 class PaginaInicial extends StatelessWidget {
+  final VoidCallback onNextPage;
+
   const PaginaInicial({
     Key? key,
-    required this.size,
+    required this.onNextPage,
   }) : super(key: key);
-
-  final Size size;
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Center(
       child: Container(
         decoration: BoxDecoration(
@@ -40,11 +38,7 @@ class PaginaInicial extends StatelessWidget {
                   color: const Color(0xff000000),
                 )),
             InkWell(
-              onTap: () {
-                HomeControler homeControler =
-                    Provider.of<HomeControler>(context, listen: false);
-                homeControler.navigatorPage(1);
-              },
+              onTap: onNextPage,
               child: Container(
                 height: size.height * 0.07,
                 width: size.height * 0.45,
